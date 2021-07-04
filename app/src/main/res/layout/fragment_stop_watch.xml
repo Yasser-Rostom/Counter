@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StopWatch">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#193480"
+        tools:context=".Watch">
+
+        <ImageView
+            android:id="@+id/watch"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:paddingRight="3dp"
+
+android:paddingBottom="27dp"
+            android:src="@drawable/watch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/anchorimg"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="25dp"
+            android:src="@drawable/spark"
+            app:layout_constraintBottom_toTopOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Chronometer
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/watch"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+
+
+            android:elevation="10dp"
+            android:stateListAnimator="@null"
+            android:textColor="#fff"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toTopOf="@+id/startbtn"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+        <Button
+            android:id="@+id/startbtn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="132dp"
+            android:background="@drawable/btn_radius"
+            android:elevation="10dp"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:stateListAnimator="@null"
+            android:text="Start"
+            android:textColor="#193480"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.939" />
+
+        <Button
+            android:id="@+id/pausebtn"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/btn_radius_stop"
+            android:elevation="10dp"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:stateListAnimator="@null"
+            android:text="pause"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/startbtn" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="311dp"
+            android:layout_height="313dp"
+            android:layout_marginTop="24dp"
+            android:alpha="0.2"
+            android:elevation="10dp"
+
+            android:src="@drawable/blur_bg"
+            android:stateListAnimator="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/watch" />
+
+        <Button
+            android:id="@+id/resetbtn"
+            android:layout_width="50dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/reset"
+            android:elevation="10dp"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:stateListAnimator="@null"
+            app:layout_constraintBottom_toBottomOf="@+id/chronometer"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.474"
+            app:layout_constraintStart_toEndOf="@+id/chronometer"
+            app:layout_constraintTop_toTopOf="@+id/imageView2"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</FrameLayout>

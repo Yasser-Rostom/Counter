@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Counter">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#193480"
+            tools:context=".Watch">
+
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="108dp"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/rectanglefortxt"
+                    app:layout_constraintBottom_toTopOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.815" />
+
+                <Chronometer
+                    android:id="@+id/counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:countDown="true"
+
+                    android:layout_centerHorizontal="true"
+
+
+                    android:elevation="10dp"
+                    android:stateListAnimator="@null"
+                    android:textColor="#fff"
+                    android:textSize="28sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.518"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.451" />
+
+                <Button
+                    android:id="@+id/countingbtn"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="132dp"
+                    android:background="@drawable/btn_radius"
+                    android:elevation="10dp"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:stateListAnimator="@null"
+                    android:text="Start"
+                    android:textColor="#193480"
+                    android:textSize="25dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.939" />
+
+                <Button
+                    android:id="@+id/pauseCountingBtn"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="52dp"
+                    android:background="@drawable/btn_radius_stop"
+                    android:elevation="10dp"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:stateListAnimator="@null"
+                    android:text="pause"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="351dp"
+                    android:layout_height="360dp"
+                    android:alpha="0.2"
+                    android:elevation="10dp"
+
+                    android:src="@drawable/blur_bg"
+                    android:stateListAnimator="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.498" />
+
+                <EditText
+                    android:id="@+id/edttxt"
+                    android:layout_width="1in"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="92dp"
+                    android:hint="Enter a number"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toTopOf="@+id/countingbtn"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.709" />
+
+                <Button
+                    android:id="@+id/resetbtnc"
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="88dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/reset"
+                    android:elevation="10dp"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:stateListAnimator="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/countingbtn"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
