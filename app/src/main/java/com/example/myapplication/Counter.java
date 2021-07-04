@@ -1,5 +1,8 @@
 package com.example.myapplication;
 
+import android.app.Activity;
+import android.content.Context;
+import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,17 +14,21 @@ import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.jetbrains.annotations.NotNull;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
 
 public class Counter extends Fragment {
     EditText editText;
-    Chronometer chronometer;
+    TextView textView;
     Button start,stop, reset;
     String ed_text;
     long countingNumber;
@@ -73,26 +80,37 @@ public class Counter extends Fragment {
         start = view.findViewById(R.id.countingbtn);
         reset = view.findViewById(R.id.resetbtnc);
         stop = view.findViewById(R.id.pauseCountingBtn);
-        chronometer = view.findViewById(R.id.counter);
+        textView = view.findViewById(R.id.counter);
 
-        start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        start.setOnClickListener(v -> {
 
-                ed_text = editText.getText().toString().trim();
+            hideSoftKeyboard();
 
-                if (ed_text.isEmpty() || Integer.valueOf(ed_text)< 0)
-                {
-                    Toast.makeText(getContext(),"Please enter a positive number",Toast.LENGTH_LONG).show();
-                }
-                else
-                {
-                    Timer(ed_text);
-                }
 
+            ed_text = editText.getText().toString().trim();
+
+            if (ed_text.isEmpty() || Integer.valueOf(ed_text)< 0)
+            {
+                Toast.makeText(getContext(),"Please enter a positive number",Toast.LENGTH_LONG).show();
             }
-        });
+            else
+            {
+                Timer(ed_text);
+            }
 
+        });
+        stop.setOnClickListener(view1 -> {
+
+
+            start.animate().alpha(1).setDuration(1000).start();
+            stop.animate().alpha(0).translationY(100).setDuration(1000).start();
+        });
+        reset.setOnClickListener(v -> {
+
+                start.animate().alpha(1).setDuration(1000).start();
+                stop.animate().alpha(0).translationY(100).setDuration(1000).start();
+
+        });
     }
 
     @Override
@@ -108,12 +126,16 @@ public class Counter extends Fragment {
         new CountDownTimer(countingNumber, 1000) {
             public void onTick(long millisUntilFinished) {
 
-            editText.setText(String.valueOf(millisUntilFinished / 1000));
+                textView.setText(String.valueOf(millisUntilFinished / 1000));
             }
 
             public void onFinish() {
-                editText.setText("Done");
+                textView.setText("Done");
             }
         }.start();
+    }
+    private void hideKeybaord(View v) {
+        InputMethodManager inputMethodManager = (inputMethodManager)getSystemService("input_method");
+        inputMethodManager.hideSoftInputFromWindow(v.getApplicationWindowToken(),0);
     }
 }
