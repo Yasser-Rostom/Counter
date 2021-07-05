@@ -32,6 +32,8 @@ public class Counter extends Fragment {
     Button start,stop, reset;
     String ed_text;
     long countingNumber;
+    String savedTime;
+    CountDownTimer countDownTimer;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -82,31 +84,43 @@ public class Counter extends Fragment {
         stop = view.findViewById(R.id.pauseCountingBtn);
         textView = view.findViewById(R.id.counter);
 
+        stop.setVisibility(View.INVISIBLE);
         start.setOnClickListener(v -> {
 
-            hideSoftKeyboard();
+            hideKeybaord(v);
 
 
             ed_text = editText.getText().toString().trim();
 
             if (ed_text.isEmpty() || Integer.valueOf(ed_text)< 0)
             {
-                Toast.makeText(getContext(),"Please enter a positive number",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),"Please enter a positive number",
+                        Toast.LENGTH_LONG).show();
             }
             else
             {
+                if (countDownTimer != null) countDownTimer.cancel();
+
+
                 Timer(ed_text);
+                stop.setVisibility(View.VISIBLE);
+                start.animate().alpha(0).setDuration(1000).start();
+                stop.animate().alpha(1).translationY(-100).setDuration(1000).start();
             }
 
         });
         stop.setOnClickListener(view1 -> {
+
+          savedTime = (String) textView.getText();
+
 
 
             start.animate().alpha(1).setDuration(1000).start();
             stop.animate().alpha(0).translationY(100).setDuration(1000).start();
         });
         reset.setOnClickListener(v -> {
-
+            textView.clearComposingText();
+            if (countDownTimer != null) countDownTimer.cancel();
                 start.animate().alpha(1).setDuration(1000).start();
                 stop.animate().alpha(0).translationY(100).setDuration(1000).start();
 
@@ -123,7 +137,7 @@ public class Counter extends Fragment {
     public void Timer(String number)
     {
         countingNumber = Long.parseLong(number) * 1000;
-        new CountDownTimer(countingNumber, 1000) {
+       countDownTimer=  new CountDownTimer(countingNumber, 1000) {
             public void onTick(long millisUntilFinished) {
 
                 textView.setText(String.valueOf(millisUntilFinished / 1000));
@@ -132,10 +146,12 @@ public class Counter extends Fragment {
             public void onFinish() {
                 textView.setText("Done");
             }
-        }.start();
+        };
+        countDownTimer.start();
     }
+
     private void hideKeybaord(View v) {
-        InputMethodManager inputMethodManager = (inputMethodManager)getSystemService("input_method");
+        InputMethodManager inputMethodManager = (InputMethodManager) this.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(v.getApplicationWindowToken(),0);
     }
 }
