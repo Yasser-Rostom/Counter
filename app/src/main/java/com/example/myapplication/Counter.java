@@ -113,6 +113,7 @@ public class Counter extends Fragment {
 
           savedTime = (String) textView.getText();
 
+          //to add a function to stop counting
 
 
             start.animate().alpha(1).setDuration(1000).start();
