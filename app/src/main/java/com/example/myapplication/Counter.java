@@ -32,7 +32,7 @@ public class Counter extends Fragment {
     Button start,stop, reset;
     String ed_text;
     long countingNumber;
-    String savedTime;
+    String savedTime="";
     CountDownTimer countDownTimer;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -100,9 +100,8 @@ public class Counter extends Fragment {
             else
             {
                 if (countDownTimer != null) countDownTimer.cancel();
-
-
-                Timer(ed_text);
+                if (savedTime.equals(""))Timer(ed_text);
+                else Timer(savedTime);
                 stop.setVisibility(View.VISIBLE);
                 start.animate().alpha(0).setDuration(1000).start();
                 stop.animate().alpha(1).translationY(-100).setDuration(1000).start();
@@ -113,15 +112,23 @@ public class Counter extends Fragment {
 
           savedTime = (String) textView.getText();
 
+            start.setText("Resume");
           //to add a function to stop counting
 
+            if (countDownTimer != null) countDownTimer.cancel();
 
             start.animate().alpha(1).setDuration(1000).start();
             stop.animate().alpha(0).translationY(100).setDuration(1000).start();
         });
         reset.setOnClickListener(v -> {
-            textView.clearComposingText();
-            if (countDownTimer != null) countDownTimer.cancel();
+            textView.setText("0");
+            editText.getText().clear();
+            start.setText("Start");
+            if (countDownTimer != null)
+            {
+                countDownTimer.cancel();
+                savedTime = "";
+            }
                 start.animate().alpha(1).setDuration(1000).start();
                 stop.animate().alpha(0).translationY(100).setDuration(1000).start();
 

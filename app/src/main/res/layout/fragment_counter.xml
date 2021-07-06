@@ -95,14 +95,14 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.498" />
+                    app:layout_constraintVertical_bias="0.884" />
 
                 <EditText
                     android:id="@+id/edttxt"
-                    android:layout_width="1in"
+                    android:layout_width="1.2in"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="92dp"
-                    android:hint="Enter a number"
+                    android:hint="Number of Seconds"
                     android:inputType="number"
                     android:textAlignment="center"
                     app:layout_constraintBottom_toTopOf="@+id/countingbtn"

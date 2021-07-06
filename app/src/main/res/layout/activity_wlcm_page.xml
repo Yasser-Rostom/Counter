@@ -4,6 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#193480"
+    android:clipToPadding="false"
     tools:context=".WlcmPage">
+
+
+    <ImageView
+        android:id="@+id/above"
+        android:layout_width="wrap_content"
+        android:layout_height="290dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/above"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/rectangle"
+        android:layout_width="376dp"
+        android:layout_height="187dp"
+        android:layout_margin="5dp"
+        android:src="@drawable/rectanglefortxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/above" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="293dp"
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/startrunningnow"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="@+id/rectangle"
+        app:layout_constraintTop_toTopOf="@+id/rectangle"
+        app:layout_constraintVertical_bias="0.486" />
+
+    <Button
+        android:id="@+id/startingbtn"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="132dp"
+        android:background="@drawable/btn_radius"
+        android:text="Let's Start"
+        android:textAllCaps="false"
+        android:textColor="#193480"
+        android:textSize="40dp"
+
+
+        android:stateListAnimator="@null"
+
+        android:elevation="10dp"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectangle" />
+
+    <ImageView
+        android:id="@+id/bottom"
+        android:layout_width="565dp"
+        android:layout_height="380dp"
+        android:layout_marginTop="32dp"
+        android:scaleType="centerCrop"
+
+        android:src="@drawable/bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectangle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

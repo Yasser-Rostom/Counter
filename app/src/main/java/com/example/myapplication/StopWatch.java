@@ -101,6 +101,7 @@ public class StopWatch extends Fragment {
         stop.setOnClickListener(view1 -> {
             img.clearAnimation();
             rotating.pause();
+            start.setText("Resume");
             timePaused = chronometer.getBase() - SystemClock.elapsedRealtime();
 
             chronometer.stop();
@@ -112,9 +113,11 @@ public class StopWatch extends Fragment {
             public void onClick(View v) {
                 if(rotating.isStarted() || rotating.isRunning())
                 {
+
                     start.animate().alpha(1).setDuration(1000).start();
                     stop.animate().alpha(0).translationY(100).setDuration(1000).start();
                 }
+                start.setText("Start");
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 chronometer.stop();
                 rotating.end();
