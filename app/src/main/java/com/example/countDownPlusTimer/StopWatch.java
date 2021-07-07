@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.countDownPlusTimer;
 
 import android.animation.ObjectAnimator;
 import android.os.Bundle;

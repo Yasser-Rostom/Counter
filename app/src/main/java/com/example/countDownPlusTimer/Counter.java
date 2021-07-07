@@ -1,8 +1,6 @@
-package com.example.myapplication;
+package com.example.countDownPlusTimer;
 
-import android.app.Activity;
 import android.content.Context;
-import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,20 +8,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.os.CountDownTimer;
-import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.jetbrains.annotations.NotNull;
-
-import static androidx.core.content.ContextCompat.getSystemService;
 
 
 public class Counter extends Fragment {
