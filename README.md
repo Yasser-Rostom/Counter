@@ -1,5 +1,5 @@
 # Counter
-This app is still under development. It features a count down timer and a counter.
+This app features a basic count down timer and a counter.
 
 
 [![image.png](https://i.postimg.cc/yxtzckcp/image.png)](https://postimg.cc/rR1bLyh5)
